@@ -164,46 +164,52 @@ function App() {
 		<>
 			<h1>React + Spring Security JWT Authentication</h1>
 			<form>
-				<div>
-					<label>Username</label>
-					<input
-						type="text"
-						value={username}
-						onChange={(e) => setUsername(e.target.value)}
-					/>
-				</div>
-				<div>
-					<label>Password</label>
-					<input
-						type="password"
-						value={password}
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-				</div>
-				<button type="button" onClick={login} disabled={loading}>
-					Connexion JWT
-				</button>
-				<button
-					type="button"
-					onClick={testPublicRoute}
-					disabled={loading}>
-					Route publique
-				</button>
-				<button
-					type="button"
-					onClick={testProtectedRouteWithJwt}
-					disabled={loading}>
-					Route protégée avec JWT
-				</button>
-				<button type="button" onClick={deleteToken}>
-					Supprimer le token
-				</button>
+				<div className="input-container">
+                    <div className="input-group">
+                        <label>Username</label>
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                        />
+                    </div>
+                    <div className="input-group">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                </div>
+				<div className="button-container">
+                    <button className="btn-primary" type="button" onClick={login} disabled={loading}>
+                        Connexion JWT
+                    </button>
+                    <button
+                        type="button"
+                                        className="btn-primary"
+                        onClick={testPublicRoute}
+                        disabled={loading}>
+                        Route publique
+                    </button>
+                    <button
+                        type="button"
+                                        className="btn-primary"
+                        onClick={testProtectedRouteWithJwt}
+                        disabled={loading}>
+                        Route protégée avec JWT
+                    </button>
+                    <button type="button" className="btn-delete" onClick={deleteToken}>
+                        Supprimer le token
+                    </button>
+                </div>
 			</form>
-			<div>
+			<div className="token-display">
 				<p>Token JWT :</p>
 				<textarea value={token} readOnly rows={5} cols={50} />
 			</div>
-			<div>
+			<div className="result-display">
 				<p>Résultat de l'API :</p>
 				<textarea value={result} readOnly rows={10} cols={50} />
 			</div>
